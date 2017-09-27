@@ -1,0 +1,7 @@
+// in theory this is only triggered if
+<% if @message.errors.any? %>
+  var msgModalContainer = document.getElementById('msg-modal');
+  msgModalContainer.innerHTML = "<%= j render 'messages/new_form_modal_content', message: @message %>";
+<% else %>
+  window.location='<%= root_path %>'
+<% end %>

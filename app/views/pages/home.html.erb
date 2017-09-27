@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h1>Home</h1>
+      <p><%= link_to 'Write Message', '#', data: { toggle: :modal, target: '#msg-modal' } %></p>
+      <p>There are <%= Message.count %> message(s) in the DB</p>
+      <% if Message.last %>
+        <p>The last one create was: <%= Message.last.email %> / <%= Message.last.body %></p>
+      <% end %>
+
+      <div class="modal fade" id="msg-modal">
+          <%= render 'messages/new_form_modal_content', message: @message %>
+      </div>
+    </div>
+  </div>
+</div>
